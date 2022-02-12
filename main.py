@@ -15,15 +15,14 @@ response = requests.get(url="https://api.openweathermap.org/data/2.5/onecall", p
 response.raise_for_status()
 data = response.json()
 
-rain = False
 next_hours = data['hourly'][:12]
 
 if [True for hour in next_hours if hour['weather'][0]['id'] < 700]:
     client = Client(account_sid, auth_token)
     message = client.messages \
         .create(
-            body="Hey, it's going to rain. Don\'t forget your umbrella ☂️",
-            from_='+18126339019',
-            to=my_phone
+        body="Hey, it's going to rain. Don\'t forget your umbrella ☂️",
+        from_='+18126339019',
+        to=my_phone
         )
     print(message.status)
