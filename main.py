@@ -12,4 +12,8 @@ response = requests.get(url="https://api.openweathermap.org/data/2.5/onecall", p
 response.raise_for_status()
 data = response.json()
 
-print(data)
+next_hours = data['hourly'][:12]
+
+weather = next_hours[0]['weather'][0]['id']
+
+print(weather)
