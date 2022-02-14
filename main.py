@@ -1,6 +1,5 @@
 import requests
 import os
-#from private_data import *
 from twilio.rest import Client
 
 MY_LAT = 50.0915234
